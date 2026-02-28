@@ -1,0 +1,15 @@
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[user]
+	name = Vladimir Moshchuk
+	email = ardonplay@gmail.com
+[includeIf "gitdir:/Users/ardonplay/workflow/bremor/"] # job needs, like workspace/* so all included projects
+    path = .gitconfig-job
+[init]
+  defaultBranch = main
+
+[core]
+	autocrlf = input

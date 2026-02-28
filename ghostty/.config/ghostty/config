@@ -1,0 +1,17 @@
+quit-after-last-window-closed = false
+shell-integration = zsh
+shell-integration-features = no-cursor,no-title
+auto-update-channel = tip
+term = xterm-256color
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+window-theme = dark
+background-opacity = 0.9
+background-blur = true
+font-size = 15
+macos-option-as-alt = true
+macos-titlebar-style = hidden
+window-padding-x = 10,0
+window-padding-y = 10
+config-file = ./themes/ayu-dark

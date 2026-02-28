@@ -1,0 +1,177 @@
+# rift config — порт с AeroSpace
+# ~/.config/rift/config.toml
+[settings]
+animate = true
+animation_duration = 0.28
+animation_fps = 120.0
+focus_follows_mouse = true
+mouse_follows_focus = true
+mouse_hides_on_focus = false
+
+auto_focus_blacklist = ["com.raycast.macos", "com.apple.Spotlight"]
+hot_reload = true
+
+run_on_start = ["rift-cli execute toggle-space-activated"]
+
+[settings.layout]
+mode = "traditional"
+
+[settings.layout.gaps.outer]
+top = 7
+left = 7
+bottom = 7
+right = 7
+
+[settings.layout.gaps.inner]
+horizontal = 7
+vertical = 7
+
+[settings.layout.stack]
+stack_offset = 30.0          # аналог accordion-padding
+default_orientation = "perpendicular"
+
+[settings.ui.menu_bar]
+enabled = true
+show_empty = false
+mode = "all"
+active_label = "index"
+display_style = "label"
+
+[virtual_workspaces]
+enabled = true
+default_workspace_count = 9
+auto_assign_windows = true
+preserve_focus_per_workspace = true
+workspace_auto_back_and_forth = false
+reapply_app_rules_on_title_change = true
+
+workspace_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+# ====================== APP RULES ======================
+app_rules = [
+  # Floating windows
+  { app_id = "com.apple.QuickTimePlayerX", floating = true },
+  { app_id = "com.edovia.screens.5", floating = true },
+  { app_id = "com.tunnelbear.mac.TunnelBear", floating = true },
+  { app_id = "com.electron.ollama", floating = true },
+  { app_id = "com.cisco.secureclient.gui", floating = true },
+  { app_id = "com.apple.finder", floating = true },
+  { app_id = "com.apple.ScreenSharing", floating = true },
+  { app_id = "com.daisydiskapp.DaisyDiskStandAlone", floating = true },
+
+  # Helium PiP (специфичное правило — workspace + floating)
+  { app_id = "net.imput.helium", title_substring = "Picture in Picture", workspace = "1", floating = true },
+
+  # Parallels console
+  { app_id = "com.parallels.desktop.console", workspace = "9", floating = true },
+
+  # Workspace 1 — Main / Zen / Helium
+  { app_id = "app.zen-browser.zen", workspace = "1" },
+  { app_id = "net.imput.helium", workspace = "1" },
+
+  # Workspace 2 — Telegram / Chat
+  { app_id = "ru.keepcoder.Telegram", workspace = "2" },
+  { app_id = "com.tdesktop.Telegram", workspace = "2" },
+  { app_id = "one.ayugram.AyuGramDesktop", workspace = "2" },
+
+  # Workspace 3 — Music / Media
+  { app_id = "ru.yandex.desktop.music", workspace = "3" },
+  { app_id = "com.spotify.client", workspace = "3" },
+  { app_name = "Aonsoku", workspace = "3" },
+
+  # Workspace 4 — Teams / Mail
+  { app_id = "com.microsoft.teams2", workspace = "4" },
+  { app_id = "com.apple.mail", workspace = "4" },
+  { app_id = "org.mozilla.Thunderbird", workspace = "4" },
+  { app_id = "com.microsoft.Outlook", workspace = "4" },
+
+  # Workspace 5 — Ghostty (terminal)
+  { app_id = "com.mitchellh.ghostty", workspace = "5" },
+
+  # Workspace 6 — Code editors
+  { app_id = "com.microsoft.VSCode", workspace = "6" },
+  { app_id = "dev.zed.Zed", workspace = "6" },
+
+  # Workspace 7 — JetBrains
+  { app_id = "com.jetbrains.intellij", workspace = "7" },
+  { app_id = "com.jetbrains.intellij-EAP", workspace = "7" },
+  { app_id = "com.jetbrains.pycharm", workspace = "7" },
+  { app_id = "com.jetbrains.phpstorm", workspace = "7" },
+
+  # Workspace 8 — DBeaver
+  { app_id = "com.dbeaver.product.ultimate", workspace = "8" },
+
+  # Workspace 9 — Windows / VM
+  { app_name = "Windows App", workspace = "9" },
+  { app_name = "Windows 11", workspace = "9" },
+]
+
+[modifier_combinations]
+comb1 = "Alt + Shift"
+comb2 = "Ctrl + Alt + Shift + Meta"
+[keys]
+# Focus
+"Alt + H" = { move_focus = "left" }
+"Alt + J" = { move_focus = "down" }
+"Alt + K" = { move_focus = "up" }
+"Alt + L" = { move_focus = "right" }
+
+# Move node / Join-with
+"comb1 + H" = { move_node = "left" }
+"comb1 + J" = { move_node = "down" }
+"comb1 + K" = { move_node = "up" }
+"comb1 + L" = { move_node = "right" }
+"Alt + Shift + Left"  = { join_window = "left" }
+"Alt + Shift + Right" = { join_window = "right" }
+"Alt + Shift + Up"    = { join_window = "up" }
+"Alt + Shift + Down"  = { join_window = "down" }
+
+# Workspace 1–9 (как в AeroSpace)
+"comb2 + 1" = { switch_to_workspace = "1" }
+"comb2 + 2" = { switch_to_workspace = "2" }
+"comb2 + 3" = { switch_to_workspace = "3" }
+"comb2 + 4" = { switch_to_workspace = "4" }
+"comb2 + 5" = { switch_to_workspace = "5" }
+"comb2 + 6" = { switch_to_workspace = "6" }
+"comb2 + 7" = { switch_to_workspace = "7" }
+"comb2 + 8" = { switch_to_workspace = "8" }
+"comb2 + 9" = { switch_to_workspace = "9" }
+
+# Move window to workspace
+"comb1 + 1" = { move_window_to_workspace = "1" }
+"comb1 + 2" = { move_window_to_workspace = "2" }
+"comb1 + 3" = { move_window_to_workspace = "3" }
+"comb1 + 4" = { move_window_to_workspace = "4" }
+"comb1 + 5" = { move_window_to_workspace = "5" }
+"comb1 + 6" = { move_window_to_workspace = "6" }
+"comb1 + 7" = { move_window_to_workspace = "7" }
+"comb1 + 8" = { move_window_to_workspace = "8" }
+"comb1 + 9" = { move_window_to_workspace = "9" }
+
+
+
+# Workspace navigation
+"comb2 + H" = "prev_workspace"
+"comb2 + L" = "next_workspace"
+"comb2 + B" = "switch_to_last_workspace"
+"Alt + B"   = "switch_to_last_workspace"
+
+# Layout
+"Alt + Slash"         = "toggle_orientation"
+"Alt + Comma"         = "toggle_stack"
+"Alt + Shift + Space" = "toggle_window_floating"
+"Alt + F"             = "toggle_fullscreen"
+
+# Resize (smart)
+"Alt + Shift + Equal"  = "resize_window_grow"
+"Alt + Shift + Minus"  = "resize_window_shrink"
+
+# Мониторы
+"Alt + Ctrl + Left"  = { move_window_to_display = { selector = 1 } }   # → PHL 246E7
+"Alt + Ctrl + Down"  = { move_window_to_display = { selector = 2 } }   # → Retina
+"Alt + Ctrl + Right" = { move_window_to_display = { selector = 0 } }   # → LG обратн
+# Utils
+"Alt + Enter" = { exec = ["open", "-a", "Ghostty"] }
+"Alt + Shift + D" = "debug"
+
+

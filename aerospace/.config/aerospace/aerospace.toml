@@ -1,0 +1,214 @@
+start-at-login = true
+config-version = 2
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+accordion-padding = 30
+on-focus-changed = ['move-mouse window-lazy-center']
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+automatically-unhide-macos-hidden-apps = false
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+after-startup-command = []
+
+[key-mapping]
+preset = 'qwerty'
+
+[gaps]
+inner.horizontal = 7
+inner.vertical = 7
+outer.left = 7
+outer.bottom = 7
+outer.top = 7
+outer.right = 7
+
+[mode.main.binding]
+cmd-h = []
+cmd-alt-h = []
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+alt-shift-cmd-h = 'move-node-to-monitor --wrap-around --focus-follows-window prev'
+alt-shift-cmd-l = 'move-node-to-monitor --wrap-around --focus-follows-window next'
+alt-shift-cmd-rightSquareBracket = 'move-workspace-to-monitor --wrap-around prev' # Move whole workspace to previous monitor
+alt-shift-cmd-leftSquareBracket = 'move-workspace-to-monitor --wrap-around next' # Move whole workspace to next monitor
+alt-shift-cmd-ctrl-1 = 'workspace 1'
+alt-shift-cmd-ctrl-2 = 'workspace 2'
+alt-shift-cmd-ctrl-3 = 'workspace 3'
+alt-shift-cmd-ctrl-4 = 'workspace 4'
+alt-shift-cmd-ctrl-5 = 'workspace 5'
+alt-shift-cmd-ctrl-6 = 'workspace 6'
+alt-shift-cmd-ctrl-7 = 'workspace 7'
+alt-shift-cmd-ctrl-8 = 'workspace 8'
+alt-shift-cmd-ctrl-9 = 'workspace 9'
+alt-shift-cmd-ctrl-h = 'workspace prev'
+alt-shift-cmd-ctrl-l = 'workspace next'
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-h = 'join-with left'
+alt-shift-j = 'join-with down'
+alt-shift-k = 'join-with up'
+alt-shift-l = 'join-with right'
+alt-shift-cmd-ctrl-t = 'layout floating tiling'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.QuickTimePlayerX'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.edovia.screens.5'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.tunnelbear.mac.TunnelBear'
+run = 'layout floating'
+
+
+[[on-window-detected]]
+if.app-id = 'com.electron.ollama'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.cisco.secureclient.gui'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ScreenSharing'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.daisydiskapp.DaisyDiskStandAlone'
+run = 'layout floating'
+
+# Zen Browser
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = ['move-node-to-workspace 1']
+
+# Helium
+[[on-window-detected]]
+if.app-id = 'net.imput.helium'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'net.imput.helium'
+if.window-title-regex-substring = 'Picture in Picture'
+run = 'layout floating'
+check-further-callbacks = true
+
+# Telegram
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.tdesktop.Telegram'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'one.ayugram.AyuGramDesktop'
+run = 'move-node-to-workspace 2'
+
+# Yandex Music
+[[on-window-detected]]
+if.app-id = 'ru.yandex.desktop.music'
+run = 'move-node-to-workspace 3'
+
+# Spotify
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace 3'
+
+# Aonsoku
+[[on-window-detected]]
+if.app-name-regex-substring = 'Aonsoku'
+run = 'move-node-to-workspace 3'
+
+# Teams/Mail
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.Thunderbird'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.thunderbird'
+run = 'move-node-to-workspace 4'
+
+
+
+# Ghostty
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run= [
+  "layout tiling",
+  "move-node-to-workspace 5"
+]
+
+# VSCode
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace 6'
+
+# Zed
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = 'move-node-to-workspace 6'
+
+# JetBrains
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.intellij'
+run = ['move-node-to-workspace 7']
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.intellij-EAP'
+run = ['move-node-to-workspace 7']
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.pycharm'
+run = ['move-node-to-workspace 7']
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.phpstorm'
+run = ['move-node-to-workspace 7']
+
+[[on-window-detected]]
+if.app-id = "com.dbeaver.product.ultimate"
+run = ["move-node-to-workspace 8"]
+
+# Windows/Parallels
+[[on-window-detected]]
+if.app-name-regex-substring = 'Windows App'
+run = 'move-node-to-workspace 9'
+
+[[on-window-detected]]
+if.app-id = 'com.parallels.desktop.console'
+run = ['layout floating', 'move-node-to-workspace 9']
+check-further-callbacks = true
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Windows 11'
+run = ['move-node-to-workspace 9']

@@ -1,0 +1,95 @@
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+yabai -m signal --add app='^Ghostty$' event=window_created action='yabai -m space --layout bsp'
+yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m space --layout bsp'
+yabai -m signal --add event=window_destroyed action="yabai -m space --balance"
+
+yabai -m config layout bsp
+yabai -m config window_border              off          \
+                mouse_follows_focus        on           \
+                focus_follows_mouse        off          \
+                window_zoom_persist        off          \
+                window_placement           first_child  \
+                window_topmost             off          \
+                window_shadow              float        \
+                window_opacity             on          \
+                window_opacity_duration    0.0          \
+                active_window_opacity      1.0          \
+                normal_window_opacity      1.0          \
+                window_border_width        5            \
+                window_border_hidpi        on          \
+                window_border_radius       5            \
+                window_border_blur         off          \
+                window_border_radius       5          \
+                window_animation_duration  0.0          \
+                active_window_border_color 0xff8e7cc3   \
+                normal_window_border_color 0xff6c5b99   \
+                insert_feedback_color      0xFFE0E0E0   \
+                split_ratio                0.50         \
+                auto_balance               on          \
+                mouse_modifier             alt          \
+                mouse_action1              move         \
+                mouse_action2              resize       \
+                mouse_drop_action          swap         \
+                top_padding                0            \
+                bottom_padding             7            \
+                left_padding               7            \
+                right_padding              7            \
+                window_gap                 7            \
+#                external_bar main:40:0
+
+yabai -m config mouse_follows_focus off
+# disable specific apps
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^TunnelBear$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^MediaMate$" manage=off
+yabai -m rule --add app="^Menuwhere$" manage=off
+yabai -m rule --add app="^Cisco Secure Client$" manage=off
+yabai -m rule --add app="^IINA" manage=off
+
+## BROWSERS
+yabai -m rule --add app="^Brave Browser$" space=^1
+yabai -m rule --add app="^Google Chrome$" space=^1
+yabai -m rule --add app="^Arc$" space=^1
+yabai -m rule --add app="^Zen$" space=^1
+yabai -m rule --add app="^Vivaldi$" space=^1
+yabai -m rule --add app="^Helium$" space=^1
+yabai -m rule --add app="^Helium$" title="Picture in Picture" manage=off
+
+yabai -m rule --add label="Ice" app="^Ice$" manage=off
+yabai -m rule --add app="^Telegram$" space=^2
+yabai -m rule --add app="^Yandex Music$" space=^3
+yabai -m rule --add app="^Spotify$" space=^3
+yabai -m rule --add app="Aonsoku" space=^3
+yabai -m rule --add app="^Microsoft Teams$" space=^4
+yabai -m rule --add app="^Thunderbird$" space=^4
+yabai -m rule --add app="^Microsoft Outlook$" space=^4
+yabai -m rule --add app="^Alacritty$" space=^5
+yabai -m rule --add app="^Ghostty$" space=^5
+yabai -m rule --add app="^iTerm2$" space=^5
+yabai -m rule --add app="^Termius$" space=^5
+yabai -m rule --add app="^Code$" space=^6
+
+yabai -m rule --add app="^IntelliJ IDEA$" manage=off space=^7
+yabai -m rule --add app="^IntelliJ IDEA$" title="^$" space=^7 manage=on
+yabai -m rule --add app="^PyCharm$" manage=off space=^7
+yabai -m rule --add app="^PyCharm$" title="^$" space=^7 manage=on
+yabai -m rule --add app="^PhpStorm$" manage=off space=^7
+yabai -m rule --add app="^PhpStorm$" title="^$" space=^7 manage=on
+
+yabai -m rule --add app="DBeaver" space=^8 manage=off
+yabai -m rule --add app="DBeaver" title="( - )" space=^8 manage=on
+yabai -m rule --add app="^Windows App" space=^9
+yabai -m rule --add app="Parallels Desktop" space=^9 manage=off
+yabai -m rule --add app="Windows 11" space=^9
+
+
+yabai -m rule --app app="^TabTab$" manage=off
+
+
+
