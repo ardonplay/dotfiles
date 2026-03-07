@@ -32,7 +32,7 @@
         }
       },
       "pointer" : {
-        "disableAcceleration" : false
+        "disableAcceleration" : true
       },
       "scrolling" : {
         "acceleration" : {
