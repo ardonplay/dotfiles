@@ -32,8 +32,8 @@ alt-k = 'focus up'
 alt-l = 'focus right'
 alt-shift-cmd-h = 'move-node-to-monitor --wrap-around --focus-follows-window prev'
 alt-shift-cmd-l = 'move-node-to-monitor --wrap-around --focus-follows-window next'
-alt-shift-cmd-rightSquareBracket = 'move-workspace-to-monitor --wrap-around prev' # Move whole workspace to previous monitor
-alt-shift-cmd-leftSquareBracket = 'move-workspace-to-monitor --wrap-around next' # Move whole workspace to next monitor
+alt-shift-cmd-rightSquareBracket = 'move-workspace-to-monitor --wrap-around prev'
+alt-shift-cmd-leftSquareBracket = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-cmd-ctrl-1 = 'workspace 1'
 alt-shift-cmd-ctrl-2 = 'workspace 2'
 alt-shift-cmd-ctrl-3 = 'workspace 3'
@@ -60,48 +60,42 @@ alt-shift-k = 'join-with up'
 alt-shift-l = 'join-with right'
 alt-shift-cmd-ctrl-t = 'layout floating tiling'
 
+# Layout toggles
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+
+# Resize
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
+
+# Open Ghostty
+alt-enter = 'exec-and-forget open -a Ghostty'
+# Service mode
+alt-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
 [[on-window-detected]]
-if.app-id = 'com.apple.QuickTimePlayerX'
+if.app-id = [
+  'com.apple.QuickTimePlayerX',
+  'com.edovia.screens.5',
+  'com.tunnelbear.mac.TunnelBear',
+  'com.electron.ollama',
+  'com.cisco.secureclient.gui',
+  'com.apple.finder',
+  'com.apple.ScreenSharing',
+  'com.daisydiskapp.DaisyDiskStandAlone'
+]
 run = 'layout floating'
 
+# Browsers
 [[on-window-detected]]
-if.app-id = 'com.edovia.screens.5'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.tunnelbear.mac.TunnelBear'
-run = 'layout floating'
-
-
-[[on-window-detected]]
-if.app-id = 'com.electron.ollama'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.cisco.secureclient.gui'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.ScreenSharing'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.daisydiskapp.DaisyDiskStandAlone'
-run = 'layout floating'
-
-# Zen Browser
-[[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
+if.app-id = ['app.zen-browser.zen', 'net.imput.helium']
 run = ['move-node-to-workspace 1']
-
-# Helium
-[[on-window-detected]]
-if.app-id = 'net.imput.helium'
-run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-id = 'net.imput.helium'
@@ -111,102 +105,47 @@ check-further-callbacks = true
 
 # Telegram
 [[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'
+if.app-id = ['ru.keepcoder.Telegram', 'com.tdesktop.Telegram', 'one.ayugram.AyuGramDesktop', 'ru.yandex.desktop.telemost', 'app.legcord.Legcord']
 run = 'move-node-to-workspace 2'
 
+# Music
 [[on-window-detected]]
-if.app-id = 'com.tdesktop.Telegram'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'one.ayugram.AyuGramDesktop'
-run = 'move-node-to-workspace 2'
-
-# Yandex Music
-[[on-window-detected]]
-if.app-id = 'ru.yandex.desktop.music'
-run = 'move-node-to-workspace 3'
-
-# Spotify
-[[on-window-detected]]
-if.app-id = 'com.spotify.client'
-run = 'move-node-to-workspace 3'
-
-# Aonsoku
-[[on-window-detected]]
-if.app-name-regex-substring = 'Aonsoku'
+if.app-id = ['ru.yandex.desktop.music', 'com.spotify.client', 'com.electron.youtube-music-desktop-app']
 run = 'move-node-to-workspace 3'
 
 # Teams/Mail
 [[on-window-detected]]
-if.app-id = 'com.microsoft.teams2'
+if.app-id = ['com.microsoft.teams2', 'com.apple.mail', 'org.mozilla.thunderbird', 'com.microsoft.Outlook']
 run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.mail'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.Thunderbird'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'com.microsoft.Outlook'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.thunderbird'
-run = 'move-node-to-workspace 4'
-
-
 
 # Ghostty
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run= [
-  "layout tiling",
-  "move-node-to-workspace 5"
-]
+run = ["layout tiling", "move-node-to-workspace 5"]
 
 # VSCode
 [[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace 6'
-
-# Zed
-[[on-window-detected]]
-if.app-id = 'dev.zed.Zed'
+if.app-id = ['com.microsoft.VSCode', 'dev.zed.Zed']
 run = 'move-node-to-workspace 6'
 
 # JetBrains
 [[on-window-detected]]
-if.app-id = 'com.jetbrains.intellij'
+if.app-id = ['com.jetbrains.intellij', 'com.jetbrains.intellij-EAP', 'com.jetbrains.pycharm', 'com.jetbrains.phpstorm']
 run = ['move-node-to-workspace 7']
 
+# DBeaver
 [[on-window-detected]]
-if.app-id = 'com.jetbrains.intellij-EAP'
-run = ['move-node-to-workspace 7']
-
-[[on-window-detected]]
-if.app-id = 'com.jetbrains.pycharm'
-run = ['move-node-to-workspace 7']
-
-[[on-window-detected]]
-if.app-id = 'com.jetbrains.phpstorm'
-run = ['move-node-to-workspace 7']
-
-[[on-window-detected]]
-if.app-id = "com.dbeaver.product.ultimate"
-run = ["move-node-to-workspace 8"]
+if.app-id = 'com.dbeaver.product.ultimate'
+run = ['move-node-to-workspace 8']
 
 # Windows/Parallels
 [[on-window-detected]]
-if.app-name-regex-substring = 'Windows App'
+if.app-id = ['com.microsoft.rdc.macos','com.parallels.desktop.console']
 run = 'move-node-to-workspace 9'
 
 [[on-window-detected]]
 if.app-id = 'com.parallels.desktop.console'
-run = ['layout floating', 'move-node-to-workspace 9']
+run = ['layout floating']
 check-further-callbacks = true
 
 [[on-window-detected]]
