@@ -1,7 +1,7 @@
 # =========================
 # PATH
 # =========================
-BREW_PREFIX="$(brew --prefix)"
+BREW_PREFIX="/opt/homebrew"
 
 path=(
     "$HOME/.local/bin"
@@ -12,9 +12,6 @@ path=(
     "$BREW_PREFIX/opt/llvm/bin"
     "$BREW_PREFIX/opt/mysql@8.4/bin"
     "$BREW_PREFIX/bin"
-    "$HOME/.sdkman/candidates/java/current/bin"
-    "$HOME/.sdkman/candidates/maven/current/bin"
-    "$HOME/.sdkman/candidates/gradle/current/bin"
     $path
 )
 
@@ -22,7 +19,6 @@ path=(
 # Environment
 # =========================
 export BUN_INSTALL="$HOME/.bun"
-export NVM_DIR="$HOME/.nvm"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export LDFLAGS="-L/$BREW_PREFIX/opt/ruby@3.4/lib"
 export CPPFLAGS="-I/$BREW_PREFIX/opt/ruby@3.4/include"
@@ -30,10 +26,11 @@ export CPPFLAGS="-I/$BREW_PREFIX/opt/ruby@3.4/include"
 # =========================
 # Aliases
 # =========================
+alias tree='eza --tree --icons=always --group-directories-first --level=3 --git-ignore'
 alias ls='eza --icons=always --group-directories-first'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
+alias ll='eza --icons=always --group-directories-first -lh --git'
+alias la='eza --icons=always --group-directories-first -a'
+alias lla='eza --icons=always --group-directories-first -lha --git'
 alias cat='bat'
 alias python='python3'
 alias ip='ifconfig | grep inet'
@@ -104,13 +101,16 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # =========================
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
-eval "$(fnm env --use-on-cd)"
-eval "$(thefuck --alias fuck)"
+eval "$(mise activate zsh)"
 
 ZSH_AUTOSUGGEST_STRATEGY=(atuin history)
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [[ -s "$HOME/.bun/_bun" ]] && source "$HOME/.bun/_bun"
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/ardonplay/.lmstudio/bin"
+# End of LM Studio CLI section
 
